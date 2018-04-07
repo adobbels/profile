@@ -72,9 +72,9 @@
 	                    <li><a href="#HOME">Home</a></li>
 	                    <li><a href="#SERVICE">Services</a></li>
 	                    <li><a href="#ABOUT">About</a></li>
-	                    <li><a href="#TESTIMONIAL">Testimonial</a></li>
+<!-- 	                    <li><a href="#TESTIMONIAL">Testimonial</a></li> -->
 	                    <li><a href="#WORK">Work</a></li>
-	                    <li><a href="#CONTACT">Contact</a></li>
+<!-- 	                    <li><a href="#CONTACT">Contact</a></li> -->
 	                  </ul>
 	                </div><!-- /.navbar-collapse -->
 	              </div><!-- /.container -->
@@ -84,7 +84,8 @@
 	                <div class="row">
 	                    <div class="col-md-12 text-center">
 	                        <div class="home_text wow fadeInUp animated">
-	                            <h2>Bonjour ! c'est aurélien</h2>
+                              <h2>Bonjour !</h2>
+	                            <h2><span id="example">Start</span></h2>
 	                            <p>fullstack developer et investment analyst</p>
 	                            <img src="images/shape.png" alt="">
 	                        </div>
@@ -106,6 +107,15 @@
 	    </section>
     </header>
 
+<script>
+  var texts = ["je suis aurélien", "je suis hyper motivé", "je suis disponible dès maintenant"];
+var count = 0;
+function changeText() {
+    $("#example").text(texts[count]);
+    count < 3 ? count++ : count = 0;
+}
+setInterval(changeText, 1500);
+</script>
 
     <section class="services" id="SERVICE">
         <div class="container">
@@ -149,36 +159,36 @@
           <div class="section_overlay">
               <div class="container">
                   <div class="row">
-                      <div class="col-md-6 wow fadeInLeft animated">
-                          <div class="row">
-                              <div class="col-md-4">
-                                  <div class="single_count">
-                                      <i class="icon-toolbox"></i>
-                                      <h3>2</h3>
-                                      <p>compétences</p>
-                                  </div>
-                              </div>
-                              <div class="col-md-4">
-                                  <div class="single_count">
-                                      <i class="icon-trophy"></i>
-                                      <h3>10</h3>
-                                      <p>ans d'expérience</p>
-                                  </div>
-                              </div>
-                              <div class="col-md-4">
-                                  <div class="single_count">
-                                      <i class="icon-clock"></i>
-                                      <h3>35</h3>
-                                      <p>ans</p>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-md-5 col-md-offset-1 wow fadeInRight animated">
-                          <div class="imac">
-                              <img src="images/giphy-downsized.gif" alt="">
-                          </div>
-                      </div>
+                    <div class="col-md-6 wow fadeInLeft animated">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="single_count">
+                                    <i class="icon-toolbox"></i>
+                                    <h3>2</h3>
+                                    <p>compétences</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="single_count">
+                                    <i class="icon-trophy"></i>
+                                    <h3>10</h3>
+                                    <p>ans d'expérience</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="single_count">
+                                    <i class="icon-clock"></i>
+                                    <h3>35</h3>
+                                    <p>ans</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-md-offset-1 wow fadeInRight animated">
+                        <div class="imac">
+                            <img src="images/Photo.png" alt="">
+                        </div>
+                    </div>
 <!--                       <div class="col-md-5 col-md-offset-1 wow fadeInRight animated">
                           <div class="imac">
                               <img src="images/imac.png" alt="">
@@ -189,6 +199,16 @@
           </div>
       </section>
     </div>
+
+
+
+
+
+
+
+
+
+
 
     <section class="about_us_area" id="ABOUT">
         <div class="container">
@@ -203,6 +223,11 @@
         </div>
         <div class="container">
             <div class="row">
+                    <h1 style="text-align: center; ">
+                      <a class="typewrite" style="text-decoration: none; font-family: 'Dosis', sans-serif; sans-serif; color: #3d3d3d;" data-period="2000" data-type='[ "Hi, Im Si. I am Creative. I Love Design. I Love to Develop.", "I am Creative.", "I Love Design.", "I Love to Develop." ]'>
+                        <span class="wrap"></span>
+                      </a>
+                    </h1>
 <!--                 <div class="col-md-4  wow fadeInLeft animated">
                     <div class="single_progress_bar">
                         <h2>DESIGN - 90%</h2>
@@ -249,9 +274,7 @@
             </div>
         </div>
     </section>
-
-
-    <section class="testimonial text-center wow fadeInUp animated" id="TESTIMONIAL">
+<!--     <section class="testimonial text-center wow fadeInUp animated" id="TESTIMONIAL">
         <div class="container">
             <div class="icon">
                 <i class="icon-quote"></i>
@@ -267,7 +290,60 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
+<script>
+  var TxtType = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 1000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
+
+    TxtType.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+        var that = this;
+        var delta = 150 - Math.random() * 100;
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+        }
+
+        setTimeout(function() {
+        that.tick();
+        }, delta);
+    };
+
+    window.onload = function() {
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i=0; i<elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+              new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+    };
+</script>
 
     <section class="work_area" id="WORK">
         <div class="container">
