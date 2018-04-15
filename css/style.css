@@ -478,4 +478,17 @@ letter-spacing: 0px;
     background-size: 100% auto;
 }
 
-
+.btn-treehouse {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #f74d65;
+  transition: background 0.3s ease;
+}
+.btn-treehouse:hover {
+  opacity: 1;
+  background: #b2d0f8;
+  text-decoration: none;
+  color: white;
+}
